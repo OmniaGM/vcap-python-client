@@ -125,30 +125,7 @@ class VPC(object):
             path = '%s/%s/application' %(constants.APPS_PATH, name)
 #            upload using VMC Request method
             return self.request('POST', path, constants.DEFAULT_CONTENT_TYPE, upload_data)
-#            upload using requestslib
-#            import requests
-#            r =  requests.post(url = '%s/%s' %(constants.DEFAULT_TARGET, path),
-#                                data = {'method':'PUT', 'resources':upload_data['resources']},
-#                                files =  {'application': upload_file})
-#            return r.status_code, r.headers
-
-#            upload using posterlib
-#            import poster, urllib2, cookielib
-#            opener = poster.streaminghttp.register_openers()
-#            opener.add_handler(urllib2.HTTPCookieProcessor(cookielib.CookieJar())) # Add cookie handler
-#            datagen, headers = poster.encode.multipart_encode(upload_data)
-#            request = urllib2.Request('%s/%s' %(constants.DEFAULT_TARGET, path), datagen, headers)
-#            result = urllib2.urlopen(request) 
-#            return result 
-
-#            upload using MultipartPostHandler lib
-#            import MultipartPostHandler, urllib2
-#            opener = urllib2.build_opener(MultipartPostHandler.MultipartPostHandler)
-#            urllib2.install_opener(opener)
-#            request = urllib2.Request('%s%s' %(constants.DEFAULT_TARGET, path), upload_data)
-#            response = urllib2.urlopen(request)
-#            return response 
-
+#            
         
     def app_info(self, name):
         if self.check_login_status():
