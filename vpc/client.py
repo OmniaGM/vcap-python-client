@@ -31,11 +31,9 @@ class VPC(object):
         content = self.json_get(constants.INFO_PATH)
         return content
 
-
-    ############################################################################################
-    ##### Login #####
-    
-    ###########################################################################################
+############################################################################################
+##### Login #####
+###########################################################################################
     
     def login(self, user, password):
         path =  '%s/%s/tokens' % (constants.USERS_PATH, user)
@@ -181,7 +179,11 @@ class VPC(object):
     def services_info(self):
         if self.check_login_status():
             return self.json_get(constants.GLOBAL_SERVICES_PATH)
-    
+
+    def services(self):
+        if self.check_login_status():
+            return self.json_get(constants.SERVICES_PATH)
+            
 ######################################################
 ###Admin###
 #####################################################

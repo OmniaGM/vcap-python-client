@@ -394,12 +394,19 @@ class TestClient(unittest.TestCase):
 ######################################################
 ###Test Services###
 #####################################################
-    def test_services(self):
-        import ipdb;ipdb.set_trace()
+    def test_services_info(self):
         client = VPC() 
         client.login('c9.cf.poc@gmail.com', 'cloud9ers')
         services = client.services_info()
         self.assertEqual(True, services.has_key('generic'))
+    
+    def test_services(self):
+        import ipdb;ipdb.set_trace()
+        client = VPC()
+        client.login('c9.cf.poc@gmail.com', 'cloud9ers')
+        services = client.services()
+        self.assertEqual('mysql', services[0]['vendor'])
+        self.assertEqual('ruby-foo-c9-sql', services[0]['name'])
         
 ######################################################
 ###Test admin###
